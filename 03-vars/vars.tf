@@ -62,3 +62,12 @@ variable "demo1" {}
 output "demo1" {
   value = var.demo1
 }
+
+# Variable from Shell env Variables
+variable "demo2" {
+  default = null
+}
+
+output "demo2" {
+  value = var.demo2
+}
