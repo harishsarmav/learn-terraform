@@ -33,9 +33,9 @@ output "sample4" {
 # List variable type
 variable "sample5" {
   default = [
-  100,
-  "abc",
-  "xyz"
+    100,
+    "abc",
+    "xyz"
   ]
 }
 
@@ -55,3 +55,6 @@ variable "sample6" {
 output "sample6" {
   value = var.sample6["number"]
 }
+
+# Variables from tfvars
+variable "" {}
