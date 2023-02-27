@@ -1,10 +1,9 @@
 resource "aws_instance" "web" {
-  for_each        = var.components
   ami             = data.aws_ami.centos8.id
-  instance_type   = each.value.instance_type
+  instance_type   = var.instance_type
 
   tags = {
-    Name = each.value["name"]
+    Name = var.name
   }
 }
 
@@ -22,17 +21,5 @@ output "publicip" {
   value = aws_instance.web.*.public_ip
 }
 
-
-variable "components" {
-  default = {
-    cart = {
-      name = "cart"
-      instance_type = "t3.small"
-    }
-
-    catalogue = {
-      name = "catalogue"
-      instance_type = "t3.micro"
-    }
-  }
-}
+variable "instance_type" {}
+variable "name" {}
