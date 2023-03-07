@@ -13,7 +13,7 @@ variable "components" {
 }
 
 locals {
-  instance_type = { for k, v in var.components : k => v.instance_type}
+  instance_type = { for k, v in var.components : "k" => v.instance_type}
   name          = { for k, v in var.components : k => v.name}
 }
 
